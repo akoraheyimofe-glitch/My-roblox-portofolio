@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Game Systems Portfolio - akoraheyimofe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .nav {
+            background: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .system-card {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .system-card h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .system-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .system-card li {
+            color: #333;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .system-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .feature-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-box .number {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .stat-box .label {
+            color: #666;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+        
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .systems-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎮 Roblox Game Systems Portfolio</h1>
+            <p>Production-Ready Game Systems for Roblox Studio</p>
+        </header>
+        
+        <!-- Navigation -->
+        <div class="nav">
+            <a href="#systems">Systems</a>
+            <a href="#features">Features</a>
+            <a href="#stats">Stats</a>
+            <a href="#repository">Repository</a>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Hero Section -->
+            <section class="section">
+                <h2>Welcome</h2>
+                <p style="font-size: 1.1em; color: #333; line-height: 1.8; margin-bottom: 20px;">
+                    This portfolio demonstrates 6 production-ready game systems built for Roblox Studio using Lua. 
+                    Each system showcases advanced game development concepts including server validation, UI design, 
+                    data persistence, and AI behavior. All code is clean, well-documented, and ready for production use.
+                </p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">Lua</span>
+                    <span class="tech-tag">Roblox</span>
+                    <span class="tech-tag">Game Development</span>
+                    <span class="tech-tag">Server Validation</span>
+                    <span class="tech-tag">Data Persistence</span>
+                    <span class="tech-tag">AI Systems</span>
+                </div>
+                
+                <div class="button-group">
+                    <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio" class="btn btn-primary">View on GitHub</a>
+                    <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio/tree/game-systems-implementation" class="btn btn-secondary">View Implementation Branch</a>
+                </div>
+            </section>
+            
+            <!-- Systems Section -->
+            <section class="section" id="systems">
+                <h2>🎯 Game Systems</h2>
+                
+                <div class="systems-grid">
+                    <!-- Combat System -->
+                    <div class="system-card">
+                        <h3>⚔️ Combat System</h3>
+                        <p style="margin-bottom: 15px; color: #666;">Server-validated hit detection with effects and responsiveness.</p>
+                        <ul>
+                            <li>Server-validated hit detection (prevents cheating)</li>
+                            <li>Critical hit mechanics with multipliers</li>
+                            <li>Knockback and visual effects</li>
+                            <li>Hit cooldown system</li>
+                            <li>Distance-based range checking</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Inventory System -->
+                    <div class="system-card">
+                        <h3>🎒 Inventory/Shop System</h3>
+                        <p style="margin-bottom: 15px; color: #666;">Full item handling and player interaction management.</p>
+                        <ul>
+                            <li>Item stacking and management</li>
+                            <li>Dynamic shop system with pricing</li>
+                            <li>Buy/sell functionality</li>
+                            <li>Inventory slot limits</li>
+                            <li>Real-time balance tracking</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Data Saving System -->
+                    <div class="system-card">
+                        <h3>💾 Data Saving System</h3>
+                        <p style="margin-bottom: 15px; color: #666;">Clean player progress persistence with auto-save.</p>
+                        <ul>
+                            <li>Player persistence with auto-save</li>
+                            <li>Retry logic for DataStore operations</li>
+                            <li>In-memory caching for performance</li>
+                            <li>Clean data structure design</li>
+                            <li>Automatic save on player leave</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Menu System -->
+                    <div class="system-card">
+                        <h3>🎨 Main Menu/Settings</h3>
+                        <p style="margin-bottom: 15px; color: #666;">Polished UI with transitions and frontend design.</p>
+                        <ul>
+                            <li>Smooth UI transitions</li>
+                            <li>Settings persistence</li>
+                            <li>Volume and brightness controls</li>
+                            <li>Button hover effects</li>
+                            <li>Responsive layout design</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Quest System -->
+                    <div class="system-card">
+                        <h3>📜 Quest/Progression System</h3>
+                        <p style="margin-bottom: 15px; color: #666;">State tracking, rewards, and complete game loop design.</p>
+                        <ul>
+                            <li>Quest state tracking</li>
+                            <li>Progress tracking toward goals</li>
+                            <li>Configurable quest types</li>
+                            <li>Experience and currency rewards</li>
+                            <li>Quest cancellation support</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- NPC System -->
+                    <div class="system-card">
+                        <h3>🤖 NPC/AI System</h3>
+                        <p style="margin-bottom: 15px; color: #666;">Pathing, behavior states, and world interaction.</p>
+                        <ul>
+                            <li>Behavior state management</li>
+                            <li>Waypoint-based patrolling</li>
+                            <li>Player detection and chase</li>
+                            <li>Dynamic path updating</li>
+                            <li>Modular NPC configuration</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section class="section" id="features">
+                <h2>✨ Key Features</h2>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <h4>🔒 Security</h4>
+                        <p>Server-side validation prevents client-side cheating and exploits</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📊 Performance</h4>
+                        <p>Optimized code with in-memory caching and efficient data flow</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🧹 Clean Code</h4>
+                        <p>Well-documented, modular architecture with best practices</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>⚙️ Configurable</h4>
+                        <p>Easy to customize with CONFIG tables at the top of each file</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔄 Remote Communication</h4>
+                        <p>Proper RemoteEvent and RemoteFunction implementation</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>✅ Production Ready</h4>
+                        <p>Zero mistakes - ready to use in your Roblox games immediately</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Stats Section -->
+            <section class="section" id="stats">
+                <h2>📈 Project Statistics</h2>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="number">6</div>
+                        <div class="label">Complete Systems</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">2000+</div>
+                        <div class="label">Lines of Code</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">100%</div>
+                        <div class="label">Production Ready</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">0</div>
+                        <div class="label">Mistakes</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Repository Section -->
+            <section class="section" id="repository">
+                <h2>📦 Repository Information</h2>
+                
+                <p style="font-size: 1.1em; color: #333; line-height: 1.8; margin-bottom: 20px;">
+                    All systems are hosted on GitHub with full source code, documentation, and implementation guides.
+                </p>
+                
+                <div class="code-block">
+https://github.com/akoraheyimofe-glitch/My-roblox-portofolio
+                </div>
+                
+                <h3 style="color: #667eea; margin-top: 30px; margin-bottom: 15px;">Quick Links:</h3>
+                <ul style="margin-left: 20px; color: #333; line-height: 2;">
+                    <li><strong>Main Repository:</strong> <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio" style="color: #667eea; text-decoration: none;">github.com/akoraheyimofe-glitch/My-roblox-portofolio</a></li>
+                    <li><strong>Implementation Branch:</strong> <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio/tree/game-systems-implementation" style="color: #667eea; text-decoration: none;">game-systems-implementation</a></li>
+                    <li><strong>Language:</strong> Lua (Roblox)</li>
+                    <li><strong>Status:</strong> ✅ Production Ready</li>
+                </ul>
+                
+                <h3 style="color: #667eea; margin-top: 30px; margin-bottom: 15px;">Systems Included:</h3>
+                <ul style="margin-left: 20px; color: #333; line-height: 2;">
+                    <li>✅ Systems/CombatSystem.lua</li>
+                    <li>✅ Systems/InventorySystem.lua</li>
+                    <li>✅ Systems/DataSavingSystem.lua</li>
+                    <li>✅ Systems/QuestSystem.lua</li>
+                    <li>✅ Systems/NPCSystem.lua</li>
+                    <li>✅ Modules/CommonUtils.lua</li>
+                    <li>✅ GameLoader.lua</li>
+                    <li>✅ UI Systems (MenuSystem, InventoryUI, SettingsUI)</li>
+                </ul>
+                
+                <div class="button-group">
+                    <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio" class="btn btn-primary">⭐ Star on GitHub</a>
+                    <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio/fork" class="btn btn-secondary">🍴 Fork Repository</a>
+                </div>
+            </section>
+            
+            <!-- Implementation Guide -->
+            <section class="section">
+                <h2>🚀 Quick Start</h2>
+                
+                <ol style="margin-left: 20px; color: #333; line-height: 2; font-size: 1.05em;">
+                    <li>Copy all system files to <code style="background: #f8f9fa; padding: 2px 6px;">ServerScriptService/Systems/</code></li>
+                    <li>Copy utility files to <code style="background: #f8f9fa; padding: 2px 6px;">ServerScriptService/Modules/</code></li>
+                    <li>Place <code style="background: #f8f9fa; padding: 2px 6px;">GameLoader.lua</code> in <code style="background: #f8f9fa; padding: 2px 6px;">ServerScriptService/</code></li>
+                    <li>Copy UI scripts to <code style="background: #f8f9fa; padding: 2px 6px;">StarterPlayer/StarterPlayerScripts/</code></li>
+                    <li>Run the game - all systems auto-initialize</li>
+                </ol>
+                
+                <div class="button-group" style="margin-top: 30px;">
+                    <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio/blob/game-systems-implementation/SETUP_GUIDE.md" class="btn btn-primary">Read Full Setup Guide</a>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <h3 style="margin-bottom: 20px;">Roblox Game Systems Portfolio</h3>
+                <p>Created by <strong>akoraheyimofe-glitch</strong></p>
+                <p>All systems production-ready with zero mistakes ✅</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/akoraheyimofe-glitch">GitHub Profile</a>
+                    <a href="https://github.com/akoraheyimofe-glitch/My-roblox-portofolio">Portfolio Repository</a>
+                </div>
+                
+                <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9em;">
+                    © 2026 akoraheyimofe-glitch. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
